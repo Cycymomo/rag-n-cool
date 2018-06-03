@@ -1,15 +1,15 @@
-import React from 'react';
-import { Router, Route, Link, Switch } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
+import React from 'react'
+import { Router, Route, Link, Switch } from 'react-router-dom'
+import createBrowserHistory from 'history/createBrowserHistory'
 
-import Home from './pages/Home.jsx';
-import SignUp from './pages/SignUp.jsx';
-import SignIn from './pages/SignIn.jsx';
-import About from './pages/About.jsx';
-import NotFound from './pages/NotFound.jsx';
-import './App.css';
+import Home from './pages/Home.jsx'
+import SignUp from './pages/SignUp.jsx'
+import SignIn from './pages/SignIn.jsx'
+import About from './pages/About.jsx'
+import NotFound from './pages/NotFound.jsx'
+import './App.css'
 
-const browserHistory = createBrowserHistory();
+const browserHistory = createBrowserHistory()
 
 const App = () => (
   <Router history={browserHistory}>
@@ -38,6 +38,6 @@ const App = () => (
       </Switch>
     </div>
   </Router>
-);
+)
 
-export default App;
+export default App
