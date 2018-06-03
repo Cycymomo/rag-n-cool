@@ -7,7 +7,7 @@
     "prettier/react",
     "prettier/standard"
   ],
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "prettier", "jest"],
   "env": {
     "browser": true,
     "node": true,
