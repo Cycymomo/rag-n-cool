@@ -29,13 +29,15 @@ const App = () => (
           Sign in
         </Link>
       </header>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/signin" component={SignIn} />
-        <Route exact path="/about" component={About} />
-        <Route component={NotFound} />
-      </Switch>
+      <div className="App-content">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/about" component={About} />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
     </div>
   </Router>
 )
