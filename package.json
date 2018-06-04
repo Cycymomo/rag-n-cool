@@ -1,9 +1,11 @@
 {
   "name": "react-apollo-graphql",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
+    "@types/bcryptjs": "^2.4.1",
+    "@types/validator": "^6.3.0",
     "apollo-boost": "^0.1.4",
+    "bcryptjs": "^2.4.3",
     "eslint": "^4.11.0",
     "eslint-config-airbnb": "16.1.0",
     "eslint-config-prettier": "^2.8.0",
@@ -14,7 +16,9 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.5.1",
+    "graphcool-lib": "^0.1.0",
     "graphql": "^0.13.2",
+    "graphql-request": "^1.4.0",
     "history": "^4.7.2",
     "husky": "^0.14.3",
     "lint-staged": "^7.1.3",
@@ -24,7 +28,11 @@
     "react-dom": "^16.4.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "validator": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.44"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [

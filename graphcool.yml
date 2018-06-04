@@ -1,0 +1,24 @@
+types: ./server/types.graphql
+
+functions:
+
+  signup:
+    type: resolver
+    schema: server/email-password/signup.graphql
+    handler:
+      code: server/email-password/signup.js
+
+  authenticate:
+    type: resolver
+    schema: server/email-password/authenticate.graphql
+    handler:
+      code: server/email-password/authenticate.js
+
+  loggedInUser:
+    type: resolver
+    schema: server/email-password/loggedInUser.graphql
+    handler:
+      code: server/email-password/loggedInUser.js
+
+permissions:
+  - operation: "*"

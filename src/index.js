@@ -6,9 +6,8 @@ import { ApolloProvider } from 'react-apollo'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
-// Pass your GraphQL endpoint to uri
 const client = new ApolloClient({
-  uri: 'https://api.graph.cool/simple/v1/cjftrnaxe0j5n0164kd8cvhlt',
+  uri: 'https://api.graph.cool/simple/v1/cji0pwq7i4uh90176hcccygo4',
 })
 
 const ApolloApp = AppComponent => (
