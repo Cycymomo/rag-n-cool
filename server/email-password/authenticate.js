@@ -1,5 +1,5 @@
-import { fromEvent } from 'graphcool-lib'
-import bcryptjs from 'bcryptjs'
+const { fromEvent } = require('graphcool-lib')
+const bcryptjs = require('bcryptjs')
 
 const userQuery = `
 query UserQuery($email: String!) {
@@ -29,13 +29,13 @@ module.exports = event => {
   return getGraphcoolUser(api, email)
     .then(graphcoolUser => {
       if (!graphcoolUser) {
-        return Promise.reject(new Error('Invalid Credentials'))
+        return Promise.reject('Invalid Credentials')
       }
       return bcryptjs.compare(password, graphcoolUser.password).then(passwordCorrect => {
         if (passwordCorrect) {
           return graphcoolUser.id
         }
-        return Promise.reject(new Error('Invalid Credentials'))
+        return Promise.reject('Invalid Credentials')
       })
     })
     .then(graphcoolUserId => graphcool.generateAuthToken(graphcoolUserId, 'User'))

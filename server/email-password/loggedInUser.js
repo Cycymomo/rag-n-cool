@@ -1,4 +1,4 @@
-import { fromEvent } from 'graphcool-lib'
+const { fromEvent } = require('graphcool-lib')
 
 const userQuery = `
 query UserQuery($userId: ID!) {

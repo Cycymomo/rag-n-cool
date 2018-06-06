@@ -2,8 +2,6 @@
   "name": "react-apollo-graphql",
   "version": "0.1.0",
   "dependencies": {
-    "@types/bcryptjs": "^2.4.1",
-    "@types/validator": "^6.3.0",
     "apollo-boost": "^0.1.4",
     "bcryptjs": "^2.4.3",
     "eslint": "^4.11.0",
@@ -18,7 +16,6 @@
     "eslint-plugin-react": "^7.5.1",
     "graphcool-lib": "^0.1.0",
     "graphql": "^0.13.2",
-    "graphql-request": "^1.4.0",
     "history": "^4.7.2",
     "husky": "^0.14.3",
     "lint-staged": "^7.1.3",

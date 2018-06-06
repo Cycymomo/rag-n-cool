@@ -1,6 +1,6 @@
-import { fromEvent } from 'graphcool-lib'
-import bcryptjs from 'bcryptjs'
-import validator from 'validator'
+const { fromEvent } = require('graphcool-lib')
+const bcryptjs = require('bcryptjs')
+const validator = require('validator')
 
 const userQuery = `
 query UserQuery($email: String!) {
@@ -52,7 +52,7 @@ module.exports = event => {
         if (!graphcoolUser) {
           return bcryptjs.hash(password, salt).then(hash => createGraphcoolUser(api, email, hash))
         }
-        return Promise.reject(new Error('Email already in use'))
+        return Promise.reject('Email already in use')
       })
       .then(graphcoolUserId =>
         graphcool
