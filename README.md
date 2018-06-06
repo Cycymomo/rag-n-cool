@@ -2,7 +2,7 @@
 A react-apollo-graphql serverless boilerplate using Graphcool
 
   * Uses `create-react-app` and `graphcool-framework` (and Apollo with `apollo-boost`)
-  * Opiniated `eslint` config
+  * Opinionated `eslint` config
   * Signup / Signin built-in
 
 
