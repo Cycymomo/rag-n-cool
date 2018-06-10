@@ -8,6 +8,11 @@ import registerServiceWorker from './registerServiceWorker'
 
 const client = new ApolloClient({
   uri: 'https://api.graph.cool/simple/v1/cji0pwq7i4uh90176hcccygo4',
+  clientState: {
+    defaults: {
+      isConnected: false,
+    },
+  },
 })
 
 const ApolloApp = AppComponent => (

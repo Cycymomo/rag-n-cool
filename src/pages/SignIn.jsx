@@ -13,40 +13,44 @@ class SignIn extends Component {
     const { email, password } = this.state
     return (
       <Mutation mutation={authenticateUserMutation}>
-        {authenticateUser => (
-          <div>
+        {(authenticateUser, { data }) =>
+          data && data.authenticateUser && data.authenticateUser.token ? (
+            <div>Connected ! (token: {data.authenticateUser.token})</div>
+          ) : (
             <div>
-              <input
-                value={email}
-                onChange={({ target: { value: email } }) =>
-                  this.setState({ email })
+              <div>
+                <input
+                  value={email}
+                  onChange={({ target: { value: email } }) =>
+                    this.setState({ email })
+                  }
+                  type="text"
+                  placeholder="Enter your email"
+                />
+                <input
+                  value={password}
+                  onChange={({ target: { value: password } }) =>
+                    this.setState({ password })
+                  }
+                  type="password"
+                  placeholder="Enter your password"
+                />
+              </div>
+              <button
+                onClick={() =>
+                  authenticateUser({
+                    variables: {
+                      email,
+                      password,
+                    },
+                  })
                 }
-                type="text"
-                placeholder="Enter your email"
-              />
-              <input
-                value={password}
-                onChange={({ target: { value: password } }) =>
-                  this.setState({ password })
-                }
-                type="password"
-                placeholder="Enter your password"
-              />
+              >
+                Submit
+              </button>
             </div>
-            <button
-              onClick={() =>
-                authenticateUser({
-                  variables: {
-                    email,
-                    password,
-                  },
-                })
-              }
-            >
-              Submit
-            </button>
-          </div>
-        )}
+          )
+        }
       </Mutation>
     )
   }
