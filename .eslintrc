@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "extends": [
     "airbnb",
     "plugin:react/recommended",
@@ -35,6 +36,7 @@
     "import/no-extraneous-dependencies": 0,
     "import/extensions": 0,
     "prefer-promise-reject-errors": 0,
+    "import/no-named-as-default-member": 0,
     "prettier/prettier": [
       "warn",
       {

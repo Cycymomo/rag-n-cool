@@ -29,7 +29,8 @@
     "validator": "^9.0.0"
   },
   "devDependencies": {
-    "@types/node": "^8.0.44"
+    "@types/node": "^8.0.44",
+    "babel-eslint": "^8.2.3"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
