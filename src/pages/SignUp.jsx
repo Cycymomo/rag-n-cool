@@ -18,17 +18,13 @@ class SignUp extends Component {
             <div>
               <input
                 value={email}
-                onChange={({ target: { value } }) =>
-                  this.setState({ email: value })
-                }
+                onChange={({ target: { value } }) => this.setState({ email: value })}
                 type="text"
                 placeholder="Enter your email"
               />
               <input
                 value={password}
-                onChange={({ target: { value } }) =>
-                  this.setState({ password: value })
-                }
+                onChange={({ target: { value } }) => this.setState({ password: value })}
                 type="password"
                 placeholder="Enter your password"
               />

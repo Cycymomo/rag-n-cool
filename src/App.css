@@ -4,26 +4,26 @@ body {
   font-family: sans-serif;
 }
 
-.App {
+.app {
   text-align: center;
 }
 
-.App-header {
+.app-header {
   background-color: #222;
   height: 75px;
   padding: 20px;
   color: white;
 }
 
-.App-header a {
+.app-header a {
   padding: 15px;
   color: white;
 }
 
-.App-title {
+.app-title {
   font-size: 1.5em;
 }
 
-.App-content {
+.app-content {
   padding-top: 10px;
 }

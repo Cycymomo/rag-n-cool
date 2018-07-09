@@ -1,5 +1,5 @@
-import React from 'react'
-import { Router, Route, Link, Switch } from 'react-router-dom'
+import React, { Component } from 'react'
+import { Router, Route, Link, Switch, Redirect } from 'react-router-dom'
 import createBrowserHistory from 'history/createBrowserHistory'
 
 import Home from './pages/Home.jsx'
@@ -11,35 +11,102 @@ import './App.css'
 
 const browserHistory = createBrowserHistory()
 
-const App = () => (
-  <Router history={browserHistory}>
-    <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">Hello world</h1>
-        <Link to="/" href="/">
-          Home
-        </Link>
-        <Link to="/about" href="/about">
-          About
-        </Link>
-        <Link to="/signup" href="/signup">
-          Sign Up
-        </Link>
-        <Link to="/signin" href="/signin">
-          Sign in
-        </Link>
-      </header>
-      <div className="App-content">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/signin" component={SignIn} />
-          <Route exact path="/about" component={About} />
-          <Route component={NotFound} />
-        </Switch>
-      </div>
-    </div>
-  </Router>
-)
+class App extends Component {
+  state = {
+    token: localStorage.getItem('graphcool-auth-token'),
+  }
+
+  userDidSignIn = token => {
+    this.setState({ token })
+    localStorage.setItem('graphcool-auth-token', token)
+  }
+
+  logout = () => {
+    localStorage.removeItem('graphcool-auth-token')
+    this.setState({ token: null })
+  }
+
+  render() {
+    const { token } = this.state
+    const NotLoggedRoute = ({ component: Comp, ...params }) => (
+      <Route
+        {...params}
+        render={props =>
+          token ? (
+            <Redirect
+              to={{
+                pathname: '/',
+                state: { from: props.location },
+              }}
+            />
+          ) : (
+            <Comp {...props} {...params} />
+          )
+        }
+      />
+    )
+    const LoggedRoute = ({ component: Comp, ...params }) => (
+      <Route
+        {...params}
+        render={props =>
+          token ? (
+            <Comp {...props} {...params} />
+          ) : (
+            <Redirect
+              to={{
+                pathname: '/signin',
+                state: { from: props.location },
+              }}
+            />
+          )
+        }
+      />
+    )
+
+    return (
+      <Router history={browserHistory}>
+        <div className="app">
+          <header className="app-header">
+            <h1 className="app-title">Hello world</h1>
+            <Link to="/" href="/">
+              Home
+            </Link>
+            {token ? (
+              <span>
+                <Link to="/about" href="/about">
+                  About
+                </Link>
+                <button onClick={this.logout}>Logout</button>
+              </span>
+            ) : (
+              <span>
+                <Link to="/signup" href="/signup">
+                  Sign Up
+                </Link>
+                <Link to="/signin" href="/signin">
+                  Sign in
+                </Link>
+              </span>
+            )}
+          </header>
+          <div className="app-content">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <NotLoggedRoute exact path="/signup" component={SignUp} />
+              <NotLoggedRoute
+                exact
+                path="/signin"
+                component={SignIn}
+                userDidSignIn={this.userDidSignIn}
+              />
+              <LoggedRoute exact path="/about" component={About} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
+        </div>
+      </Router>
+    )
+  }
+}
 
 export default App
