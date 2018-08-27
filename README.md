@@ -1,9 +1,9 @@
-# RAG² ! (react-apollo-graphql-graphcool)
-A react-apollo-graphql serverless boilerplate using Graphcool
+# Rag'N'Cool
+An opinionated React-Apollo-Graphql serverless (using Graphcool) boilerplate
 
-  * Uses `create-react-app` and `graphcool-framework` (and Apollo with `apollo-boost`)
+  * Uses `create-react-app`, `graphcool-framework` and Apollo (with `apollo-boost`)
   * Opinionated `eslint` config
-  * Signup / Signin built-in
+  * Signup / Signin included
 
 
 # Prerequisites
@@ -12,7 +12,7 @@ Create an account on [Graphcool](https://console.graph.cool)
 
     ❯ npm install -g graphcool-framework
     ❯ graphcool login --token "<Your Token>"
-    ❯ git clone git@github.com:Cycymomo/react-apollo-graphql.git <YOUR PROJECT NAME>
+    ❯ git clone git@github.com:Cycymomo/rag-n-cool.git <YOUR PROJECT NAME>
     ❯ cd <YOUR PROJECT NAME>
     ❯ npm i
 
