@@ -1,9 +1,11 @@
 # Rag'N'Cool
 An opinionated React-Apollo-Graphql serverless (using Graphcool) boilerplate
 
-  * Uses `create-react-app`, `graphcool-framework` and Apollo (with `apollo-boost`)
+  * Uses `create-react-app`, `now.sh`, `graphcool-framework` and Apollo (with `apollo-boost`)
   * Opinionated `eslint` config
-  * Signup / Signin included
+  * Few features included :
+    * Signup
+    * Login / Logout
 
 
 # Prerequisites
@@ -38,3 +40,10 @@ Code is in the `server` directory
 
   - Nothing to do if it's in Graphcool Cloud just `graphcool deploy` when you want to update your schemas / functions
   - See [Graphcool doc](https://github.com/prismagraphql/graphcool-framework#docker) if it's in a local Docker
+
+
+# Deploy
+`Now.sh` is used for easy deployment (each PR is deployed).
+If you want to deploy, just type :
+
+    ❯ now
