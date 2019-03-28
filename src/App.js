@@ -67,7 +67,7 @@ class App extends Component {
       <Router history={browserHistory}>
         <div className="app">
           <header className="app-header">
-            <h1 className="app-title">Hello world</h1>
+            <h1 className="app-title">Rag'n'Cool</h1>
             <Link to="/" href="/">
               Home
             </Link>

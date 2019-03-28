@@ -21,4 +21,30 @@ functions:
       code: server/email-password/loggedInUser.js
 
 permissions:
-  - operation: "*"
+  # - operation: "*"
+
+  # everyone can create User
+  - operation: User.create
+
+  # authenticated + owner user can read/edit User
+  - operation: User.read
+    authenticated: true
+    fields: [id, email, name]
+    query: server/permissions/models/User.graphql:isOwner
+  - operation: User.update
+    authenticated: true
+    query: server/permissions/models/User.graphql:isOwner
+
+  # everyone can read news
+  - operation: News.read
+  # authenticated user can create news
+  - operation: News.create
+    authenticated: true
+    fields: [text]
+    query: server/permissions/models/News.graphql:isOwnerCreate
+  # authenticated + owner user can update news
+  - operation: News.update
+    authenticated: true
+    fields: [text]
+    query: server/permissions/models/News.graphql:isOwner
+

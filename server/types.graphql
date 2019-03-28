@@ -1,7 +1,18 @@
 type User @model {
-  createdAt: DateTime!
   id: ID! @isUnique
-  updatedAt: DateTime!
   email: String! @isUnique
   password: String!
+  name: String
+  news: [News!]! @relation(name: "CreatedBy")
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type News @model {
+  id: ID! @isUnique
+  title: String!
+  text: String!
+  createdBy: User! @relation(name: "CreatedBy")
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
